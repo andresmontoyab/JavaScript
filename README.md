@@ -30,16 +30,16 @@
             * [Array-Delete](#Array-Delete)  
     * [Functions](#Functions)
     * [Functional Programming](#Functional-Programming)
-            * [No Side Effects](#No-Side-Effects)
-            * [Inmutability](#Inmutability)
-            * [Recursivity](#Recursivity)
-            * [Higher order functions](#Higher-order-functions)
+        * [No Side Effects](#No-Side-Effects)
+        * [Inmutability](#Inmutability)
+        * [Recursivity](#Recursivity)
+        * [Higher order functions](#Higher-order-functions)
     * [Library of Objects](#Library-of-Objects)
         * [Array - Methods](#Array-Methods)
         * [String - Methods](#String-Methods)
         * [Number - Methods](#Number-Methods)
         * [Function - Methods](#Function-Methods)
-    * [Modules](#Modules)    
+    * [Testing](#Testing)    
             
 
 # Basis JavaScript
@@ -703,4 +703,59 @@ The library of Objects, are object that were already defined by JavaScript or so
 
 1. call
 
-# Modules
+# Testing
+
+## Jasmine
+
+Jasmine is a framework testing that give us a lot of tools to test our code.
+
+When we create and execute tests there are two posible answer
+
+1. Green: The behaviour of the code that we developed is working as expected.
+
+1. Red: The behaviour of the code that we developed is not working as expected.
+
+## Install
+
+First you should go to the next page and download the stanalone version.
+
+        https://github.com/jasmine/jasmine/releases/tag/v2.0.0  
+
+After that in the project that you want to use the Jasmine framework you must pate the next files:
+
+1. SpecRunner : File that help us to run the tests.
+
+2. lib folder: Jasmine folder in which is all the code required to run the test.
+
+Also we need to create two folder in our porject directory.
+
+1. src: Folder in which will be all the application code.
+
+2. spec: folder in which will be all the test for our code.
+
+## Examples
+
+The first step is created our code in the src folder.
+
+Let's create a simple function called next, in which always return the next value, this function is stored in the next.js file.
+
+        function next(x) {
+            return x +1;
+        };
+
+After that we must tell to jasmine where is our source code, to do that we have to update the SpecRunner and add the next tag.
+
+
+        <script type="text/javascript" src="src/next.js"></script>
+
+Now is time to create our first test.
+
+        describe('next', function(){
+            it('next(2) es 3', function() {
+                expect(next(2)).toEqual(3);
+            });
+        });
+
+Also add the next tag.
+
+        <script type="text/javascript" src="src/next-spec.js"></script>
