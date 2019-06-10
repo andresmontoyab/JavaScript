@@ -39,8 +39,10 @@
         * [String - Methods](#String-Methods)
         * [Number - Methods](#Number-Methods)
         * [Function - Methods](#Function-Methods)
-    * [Testing](#Testing)    
-            
+    * [Testing](#Testing) 
+        * [Jasmine](#Jasmine) 
+        * [Install](#Install) 
+
 
 # Basis JavaScript
 
@@ -758,4 +760,4 @@ Now is time to create our first test.
 
 Also add the next tag.
 
-        <script type="text/javascript" src="src/next-spec.js"></script>
+        <script type="text/javascript" src="spec/next-spec.js"></script>
