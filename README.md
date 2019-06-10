@@ -42,6 +42,7 @@
     * [Testing](#Testing) 
         * [Jasmine](#Jasmine) 
         * [Install](#Install) 
+    * [Task Runner](#Task-Runner)        
 
 
 # Basis JavaScript
@@ -761,3 +762,145 @@ Now is time to create our first test.
 Also add the next tag.
 
         <script type="text/javascript" src="spec/next-spec.js"></script>
+
+# Task-Runner      
+
+In the development cyckle there are some task that are repetitive task like compiling, testing, building and deployment, in order to have an standard way for our projects we use task runner like Gulp.js, Grunt.js or WebPack
+
+## Workflow
+
+Before we dive in the gulp.js first check what is a workflow or development cycle.
+
+![](https://github.com/andresmontoyab/JavaScript/blob/master/resources/development-cycle.JPG)
+
+As we can see in the previous image, there are a lot step to finish adequately the development of one feature, among these step we are going to highlight the most common:
+
+1. Development : Is the phase in which the developer write all the features.
+
+2. Build: With the new features the developer have to build the entire application in order to verify that the compilation is ok.
+
+3. Test : Is the phase in which all the Unit Test run and verify that the application is working as expected.
+
+4. Integration: Is integrate the application with several features that can help to optimize or improve the code.
+
+5. Deployment : When all the previous phases are ok, the deployment is one of the last steps in which the sources of the application that were already checked and are working are deployed in one server in order to have the application running and ready for the client.
+
+## Install
+
+Let's go dive into the Gulp.js, first to install gulp.js we must run the next command
+
+        npm install -g gulp-cli
+
+After that we must to add the dependency to our project.
+
+        npm install gulp --save-dev
+
+## GulpFile
+
+There is a particular file in which you should configure all your repetitive task, and that file is called gulpfile.js, so let begin creating the gulpfile.js
+
+Within of the gulpfile.js we should create the next variable.
+
+        var gulp = require('gulp');
+
+### Create Tasks
+
+To create tasks in gulpjs we only have to follow the next structure:
+
+
+        gulp.task('hola', function() {
+            console.log('Hola ');
+        });
+
+        gulp.task('mundo', function() {
+            console.log('mundo');
+        });
+
+        gulp.task('default', ['hola', 'mundo']);
+
+The last task called "default" is very important because this task is going to be executed if you run gulp in your cli, if you want to execute another want you can call it like gulp hello or gulp world.
+
+Another important thing to highlight in the above code is that if you can see the first and second task have a function, but the the default dont, that is because the third one is a little different, the third one depends on hola, mundo, that means only after hola and mundo finished the default task is going to be executed.
+
+There are powerfull feature in gulp.js as src, dest and pipe
+
+        gulp.task('sass', function(){
+            return gulp.src('src/style.sass')
+                .pipe(gulp.dest('.tmp'));
+        });
+
+1. gulp.src -> Read information from a source
+2. pipe -> process information
+3. gulp.dest -> Write information in the destination
+
+### Create Async Tasks
+
+        gulp.task('hola', function(cb){
+            settimeout(function() {
+                console.log("Hola");
+                cb();
+            }, 2000)
+        });
+
+Async task are not very usefull, if we want to tied to task, is better use the feature of depends on
+
+         gulp.task('mundo', ['hola'] ,function() {
+            console.log('Mundo');
+        });
+
+
+In the above code, mundo only is going to run when hola finish.
+
+### Gulp-Watch
+
+Gulp watch is an amazing feature of gulp, this feature is always cheking the changes in a specific file, and when something happens gulp is going to execute certain task.
+
+        gulp.task('watch', function() {
+            gulp.watch('src/style.sass', ['sass']);
+        });
+
+## Browser-sync
+
+Browser sync is a feature in which we can deploy our changes in a static server in order to see the changes.
+
+        var browserSync = require('browser-sync');
+
+        gulp.task('serve', ['sass'] ,function() {
+            browserSync({
+                server: {
+                    baseDir: ['.tmp', 'src']
+                }
+            });
+
+        });
+
+ ## Upload Archives
+
+ One of the final task is upload the files to a server in where we are going to run our application.
+
+ Let's set up an example using ftp.
+
+        npm install vinyl-ftp --save-dev
+
+        gulp.task('build', ['sass']);
+
+
+        function ftpConnection() {
+            return ftp.create({
+                host: 'acamica.com',
+                user:'me',
+                password: process.env.FTP_PWD,
+                parallel: 5
+            })
+        };
+
+
+        gulp.task('upload', ['build'], function() {
+            var ftp = ftpConnection();
+            var remoteFolder = 'everywhere';
+            return gulp.src('dist/**', {base: 'dist', buffer: false})
+                    .pipe(ftp.newer(remoteFolder))
+                    .pipe(ftp.dest(remoteFolder));
+        });
+
+The code above is an example of a task that will upload files after the build task.        
