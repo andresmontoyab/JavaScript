@@ -42,7 +42,15 @@
     * [Testing](#Testing) 
         * [Jasmine](#Jasmine) 
         * [Install](#Install) 
-    * [Task Runner](#Task-Runner)        
+    * [Task Runner](#Task-Runner) 
+        * [Workflow](#Workflow) 
+        * [Install](#Install) 
+        * [GulpFile](#GulpFile) 
+        * [Create Tasks](#Create-Tasks) 
+        * [Create Async Tasks ](#Create-Async-Tasks ) 
+        * [Gulp-Watch](#Gulp-Watch) 
+        * [Browser-sync](#Browser-sync ) 
+        * [Upload Archives](#Upload-Archives) 
 
 
 # Basis JavaScript
@@ -859,7 +867,7 @@ Gulp watch is an amazing feature of gulp, this feature is always cheking the cha
             gulp.watch('src/style.sass', ['sass']);
         });
 
-## Browser-sync
+### Browser-sync
 
 Browser sync is a feature in which we can deploy our changes in a static server in order to see the changes.
 
@@ -874,7 +882,7 @@ Browser sync is a feature in which we can deploy our changes in a static server 
 
         });
 
- ## Upload Archives
+ ### Upload Archives
 
  One of the final task is upload the files to a server in where we are going to run our application.
 
