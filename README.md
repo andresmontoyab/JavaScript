@@ -34,11 +34,18 @@
         * [Inmutability](#Inmutability)
         * [Recursivity](#Recursivity)
         * [Higher order functions](#Higher-order-functions)
+            * [Filter](#Filter)
+            * [Map](#Map)
+            * [Some](#Some)
+            * [Every](#Every)
+            * [Closures](#Closures)
     * [Library of Objects](#Library-of-Objects)
         * [Array - Methods](#Array-Methods)
         * [String - Methods](#String-Methods)
         * [Number - Methods](#Number-Methods)
         * [Function - Methods](#Function-Methods)
+    * [Libraries](#Libraries)
+        * [Moment.js](#Moment.JS)
     * [Testing](#Testing) 
         * [Jasmine](#Jasmine) 
         * [Install](#Install) 
@@ -713,6 +720,24 @@ The library of Objects, are object that were already defined by JavaScript or so
 ## Function Methods
 
 1. call
+
+## Libraries
+
+As you can see Javascript is a huge pragramming languague, and a lot of problem were already solved for some ither libraries, in this section we are going to show some libreries that can help us in very commom problems
+
+### Moment.JS
+
+Parse, validate, manipulate and display date and times in Javascript.
+
+In order to install moment.js in our project we can use the next command.
+
+´´´console
+npm install moment
+´´´
+
+If you want to get involve with this library we can see all the documentation in the next page.
+
+https://momentjs.com/docs/
 
 # Testing
 
