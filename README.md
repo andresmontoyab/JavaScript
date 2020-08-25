@@ -1,34 +1,36 @@
 # JavaScript
 
-* [Basis JavaScript](#Basis-JavaScript)
+* [Basic JavaScript](#Basic-JavaScript)
     * [Variables](#Variables)
-        * [Hola Mundo](#Hola-Mundo)
+        * [Hello World](#Hello-World)
         * [Console](#Console)
         * [Create Variables](#Create-Variables)
         * [Information Type](#Information-Type)
         * [Comments](#Comments)
+        * [Constants](#Constants)
+    * [Logical Operators](#Logical-Operators)
+    * [Comparission](#Comparission)
+        * [===](#===)
+        * [==](#==)
     * [Control Flow](#Control-Flow)
         * [If](#If)
-        * [Logical Operators](#Logical-Operators)
-        * [Comparission](#Comparission)
         * [For](#For)
-    * [Data Structures](#Data-Structures)    
-        * [Objects](#Objects) 
-            * [Functions in Objects](#Functions-in-Objects) 
-            * [Problems with This](#Problems-with-This) 
-            * [Polymorphism](#Polimorphism)
-            * [Instance Objects](#Instance-Objects)
-            * [Prototypes](#Prototypes)
-                * [Override Methods](#Override-Methods)
-                * [__proto__](#__proto__)
-            * [Constructor Function](#Constructor-Function)
-                * [Constructor Hierarchy](#Constructor-Hierarchy)
-                * [Prototype Hierarchy](#Prototype-Hierarchy)
-        * [Array](#Array )  
-            * [Array-Add](#Array-Add)  
-            * [Array-Search](#Array-Search)  
-            * [Array-Delete](#Array-Delete)  
     * [Functions](#Functions)
+    * [Objects](#Objects)
+        * [Functions in Objects](#Functions-in-Objects)
+        * [Problems with This](#Problems-with-This)
+        * [Polymorphism](#Polimorphism)
+        * [Instance Objects](#Instance-Objects)
+        * [Prototypes](#Prototypes)
+        * [Override Methods](#Override-Methods)
+        * [__proto__](#__proto__)
+        * [Constructor Function](#Constructor-Function)
+        * [Constructor Hierarchy](#Constructor-Hierarchy)
+        * [Prototype Hierarchy](#Prototype-Hierarchy)
+    * [Array](#Array )  
+        * [Array-Add](#Array-Add)  
+        * [Array-Search](#Array-Search)  
+        * [Array-Delete](#Array-Delete)  
     * [Functional Programming](#Functional-Programming)
         * [No Side Effects](#No-Side-Effects)
         * [Inmutability](#Inmutability)
@@ -39,13 +41,42 @@
             * [Some](#Some)
             * [Every](#Every)
             * [Closures](#Closures)
+    * [Asynchronism](#Asynchronism)
+        * [Callback](#Callback)
+        * [Errors with Callback](#Errors-with-Callback)
+        * [Callback Hell](#Callback-Hell)
+        * [Async Library](#Async-Library)
+            * [Async Series](#Async-Series)
+            * [Async Waterfall](#Async-Waterfall)
+            * [Async Parallel](#Async-Parallel)
+            * [Async each](#Async-each)
+            * [Async Filter-Reject](#Async-Filter-Reject)
+            * [Async Map](#Async-Map)
+            * [Async reduce](#Async-reduce)
+            * [Async Compose](#Async-Compose)
+            * [Async Retry](#Async-Retry)
+    * [Promises](#Promises)
+        * [Promises-Flow](#Promises-Flow)
+        * [Promises Vs Callback](#Promises-Vs-Callback)
+        * [Creating Promises](#Creating-Promises)
+        * [Promises Chained](#Promises-Chained)
+        * [Promises Chained with Error](#Promises-Chained-with-Error)
+        * [Promises in parallel](#Promises-in-parallel)
+            * [Promise.all](#Promise.all)
+            * [Promise.race](#Promise.race)
     * [Library of Objects](#Library-of-Objects)
         * [Array - Methods](#Array-Methods)
         * [String - Methods](#String-Methods)
         * [Number - Methods](#Number-Methods)
         * [Function - Methods](#Function-Methods)
+    * [ES6](#ES6)
+        * [Arrow Functions](#Arrow-Functions)
+        * [Destructuring](#Destructuring)
+        * [Destructuring Arrays](#Destructuring-Arrays)
+        * [StringTemplate](#StringTemplate)
     * [Libraries](#Libraries)
         * [Moment.js](#Moment.JS)
+        * [Reselect](#Reselect)
     * [Testing](#Testing) 
         * [Jasmine](#Jasmine) 
         * [Install](#Install) 
@@ -60,129 +91,211 @@
         * [Upload Archives](#Upload-Archives) 
 
 
-# Basis JavaScript
+# Basic JavaScript
 
 # Variables
 
-## Hola Mundo
+In order to do the next examples you need to create a simple file with .js extesions and write all of the next code there.
 
-        alert("hola mundo");
+## Hello World
+
+```js
+alert("Hello World");
+```
 
 ## Console
 
-        console.log("Hola Mundo");
+```js
+console.log("Hello World");
+```
 
 ## Create Variables
 
-        var lastname = "Smith";
+```js
+var lastname = "Smith";
+```
 
 ## Information Type
 
-1. String -> Is a simple text
+### String
 
-        var lastname = "Montoya"
+Is a simple text
 
-2. Numbers 
+```js
+var lastname = "Montoya"
+```
 
-        var age = 23;
+### Numbers 
+
+```js
+var age = 24;
+```
 
 When I have a number in a variable, I can perform all kind of numeric operations like +, -, * or /.
 
-3. Boolean -> Only have two values, true or false.
+### Boolean 
 
-        var isTrue = true;
+Booleans only have two values, true or false.
 
-4. Null and Undefined.
+```js
+var isTrue = true;
+```
+
+### Undefined
 
 When we define a var but without a value the default value is undefined.
 
-        var a;
-        console.log(a); // undefined
+```js
+var a;
+console.log(a); // undefined
+```
+
+### Null
 
 We can defined a variable with "nothing" that is null.
 
-        var a;
-        a = null;
-        console.log(a) // null
+```js
+var a;
+a = null;
+console.log(a) // null
+```
 
 ## Comments
 
 In Javascript we can write comments, to organize or help us to understand the code that we are writting.
 
-One line comment
+- One line comment
 
-        // One Line comment
+```js
+// One Line comment
+```
 
-Comment multi line
+- Comment multi line
 
-        /* This line is ignore
-        this line too
-        this line too */
+```js
+/* This line is ignore
+this line too
+this line too */
+```
 
+### Constants
 
-# Control-Flow
+The use of constants in JS helps to increase the consistency of the naming in the programs.
 
-## If
+To create constantes in JS you must follow the next steps.
 
-If we have a condition we can use the statemnt if and else, if the condition is true is going to execute the block of code inside de if, if the condition is false, the "if" code is not going to execute, however if there is a else, the block code of the else is going to execute.
+1. Create a JS file in which you wil define the constant that you need(for this example is the weather.js file).
 
-        var edad = 8;
-        if (edad => 18) {
-            alert("Es mayor de edad");
-        } else {
-            alert("Es menor de edad");
-        }
+```js
+export const CLOUD = "cloud";
+export const CLOUDY = "cloudy";
+export const SUN = "sun";
+export const RAIN = "rain";
+export const SNOW = "snow";
+export const WINDY = "windy";
+```
+
+2. Import and use those constante in the file that you need it.
+
+```js
+import {
+    CLOUD ,
+    CLOUDY,
+    SUN,  
+    RAIN, 
+    SNOW, 
+    WINDY, 
+} from './../constants/weather';
+console.log(RAIN);
+```
 
 ## Logical Operators
 
-1. && -> And
-2. || -> Or
-3. ! -> Negation
+In programming lenaguages usually there are specific operator that can helps us with boolean algebra as conjuntion, disjunction or negations, in JS there are some of those operators.
 
-Example And
+### And
 
-        var edad = 8;
-        var sexo = "m"
-        if (edad >= 18 && sexo === "m") {
-            alert("El usuario es masculino y es mayor de edad");
-        }
+In order to use the And Operator you must use the symbol `&&`
 
-Example Or
+```js
+var age = 8;
+var genre = "m"
+if (age >= 18 && genre === "m") {
+    alert("The user is male and is adult");
+}
+```
 
-        var edad = 8;
-        var sexo = "m"
-        if (edad >= 18 || sexo === "m") {
-            alert("El usuario es masculino y es mayor de edad");
-        }       
+### Or
 
-Example Negation
+In order to use the Or Operator you must use the symbol `||`
 
-        var edad = 8;
-        var sexo = "m";
+```js
+var age = 8;
+var genre = "m"
+if (age >= 18 || genre === "m") {
+    alert("The user is male or adult");
+}       
+```
 
-        if(!(edad >= 18)) {
-            alert("El usuario No es mayor de edad");
-        }
+### Negation
+
+In order to use the Negation Operator you must use the symbol `!`
+
+```js
+var age = 8;
+var genre = "m";
+
+if(!(age >= 18)) {
+    alert("The user is not adult");
+}
+```
 
 ## Comparission
 
-1. ===, In object the three = is going to compare by identiy, that mean if you referencia point to the same object.
+### ===
 
-2. ==, The two = is similar to the previous already explain, but wiht one difference, the two = try to convert the variables in a common type, so the next examples are going to be true.
+In objects the three "=" is going to compare by identiy, that mean if your reference point to the same object.
 
-       true == 1
-        undefined == null
-        “” == 0
+### ==
 
-The point right here is that the "==" could cause a lot of inconsistency, so for this reason the recomendation is always use the "===".
+The two = is similar to the previous one already explained, but wiht one difference, the two "=" try to convert the variables in a common type, so the next examples are going to be true.
 
-## For
+```js
+if (true == 1) console.log("This is true");
+uif (undefined == null) console.log("This is true too");
+if(“” == 0 ) console.log("And this too");
+```
+
+The important point here is that the "==" could cause a lot of inconsistency, so for this reason the recomendation is always use the "===".
+
+## Control-Flow
+
+### If
+
+If we have a condition we can use the statemnt if and else statement.
+
+ - if the condition is true is going to execute the block of code inside de if.
+ - But if the condition is false, the "if" code is not going to execute.
+ - If there is a else block and the condition result false, the block code of the else is going to execute.
+
+```js
+var age = 8;
+if (age => 18) {
+    alert("He/She is adult");
+} else {
+    alert("He/She is not adult");
+}
+```
+
+### For
 
 For is a statement that let us make a loop in base in one condition.
 
-        for(var i = 0(1); i<10(2); i++(3)) {
-            (4)
-        }
+```js
+for(var i = 0; i<10; i++) {
+    // Code to do right here
+}
+```
 
 As you can see the for statement have 4 parts.
 
@@ -194,67 +307,123 @@ As you can see the for statement have 4 parts.
 
 4. Block of code.
 
-# Data-Structures
+## Functions
+
+### Create a function
+
+```js
+function nameOfTheFunction() {
+    // Code right here
+}
+
+// Calling function
+nameOfTheFunction();
+```
+
+### Create function with parameters
+
+```js
+function nameOfTheFunction(param1, param2) {
+    alert(param1, param2);
+}
+
+nameOfTheFunction("hi", "there");
+```        
+
+### Create function with return statement.
+
+```js
+function nameOfTheFunction(param1, param2) {
+    return param1 + param2;
+}
+```
+
+Local variables in the function.
+
+```js
+function nameOfTheFunction(param1, param2) {
+    var age = 23;
+    return param1 + param2;
+}
+```        
+
+The variables defines within a function only have the scope within the function, not outside.
 
 ## Objects
 
+Usually when we are writing code we need to abstract a concept from the real word(In this example is going to be a box), those concepts usaully have two properties. Behaviors(methods) and state(atributes), 
+
 If you have a box with fruits and we need put the information in JavaScript we can use the next approach.
 
-        var weightBox = 3;
-        var fruitsNumber = 10;
+```js
+var weightBox = 3;
+var fruitsNumber = 10;
+```
 
 Nevertheless we created two variables and the ideal situation is that both variables are tied enought to always respresent the box information, another approach is the next.
 
-        var boxInfo =
-        {
-            weightBox: 3,
-            fruitsNumber: 10
-        }
+```js
+var boxInfo =
+{
+    weightBox: 3,
+    fruitsNumber: 10
+}
+```        
 
 Also I can create a object with the following approach:
 
-        var box = new Object();
-        box.weightBox = 3;
-        box.fruitsNumber = 10;
+```js
+var box = new Object();
+box.weightBox = 3;
+box.fruitsNumber = 10;
+```
 
 or
 
-        var box = {};
-        box.weightBox = 3;
-        box.fruitsNumber = 10;
+```js
+var box = {};
+box.weightBox = 3;
+box.fruitsNumber = 10;
+```
 
-## Functions in Objects
+### Functions in Objects
 
-        var user = new Object();
+As we said previously objects have two properties behaviors and atributes, in the above examples we created some objects wth atributes, now let's create object with behaviors.
 
-        user.name = "Andres";
-        user.age = 23;
-        user.hello = function(){
-            alert("Hola");
-        }
+```js
+var user = new Object();
+user.name = "Andres";
+user.age = 23;
+user.hello = function(){
+alert("Hola");
+}
+```
 
-or      
 
-        var user = 
-        {
-            name: "Andres",
-            age: 23,
-            hello: function() {
-                alert("hola" + this.nombre);
-            }
-        }
+```js
+var user =
+{
+    name: "Andres",
+    age: 23,
+    hello: function() {
+        alert("hola" + this.nombre);
+    }
+}
+```
 
 As you can see, in the last approach you can access with the keyword this to the values of the object.
 
-## Problems with This
+### Problems with This
 
 In some times, when you use nested this, could cause problem, because you loss the reference this in the most deep code.
 
-        gru.saludarAntesDeIrADormir  = function() {
-            this.minions.forEach(function(minion){
-                this.saludarA(minion);
-        });
-        };
+```js
+gru.saludarAntesDeIrADormir  = function() {
+    this.minions.forEach(function(minion){
+        this.saludarA(minion);
+});
+};
+```
 
 The previous code is going to fail.
 
@@ -262,91 +431,98 @@ There are three solutions for this.
 
 1. Create a var and store the value of "this" and replace the this by the new var.
 
-
-        gru.saludarAntesDeIrADormir  = function() {
-            var ins = this;
-            ins.minions.forEach(function(minion){
-                ins.saludarA(minion);
-        });
-        };
+```js
+gru.saludarAntesDeIrADormir  = function() {
+    var ins = this;
+    ins.minions.forEach(function(minion){
+        ins.saludarA(minion);
+});
+};
+```
 
 2. Using the bind(this) method in the callback
 
-        gru.saludarAntesDeIrADormir  = function() {
-            this.minions.forEach(function(minion){
-                this.saludarA(minion);
-        }.bind(this));
-        };
+```js
+gru.saludarAntesDeIrADormir  = function() {
+    this.minions.forEach(function(minion){
+        this.saludarA(minion);
+}.bind(this));
+};
+```
 
 3. Passing the this as forEach parameter.
 
-        gru.saludarAntesDeIrADormir  = function() {
-            this.minions.forEach(function(minion){
-                this.saludarA(minion);
-        },this);
-        };
+```js
+gru.saludarAntesDeIrADormir  = function() {
+    this.minions.forEach(function(minion){
+        this.saludarA(minion);
+},this);
+};
+```
 
-## Polimorphism
+### Polimorphism
 
 The polimorphism is one of most powerful concepts in OOP, the idea with polimorphism is that an object could have different implementation depends of the object but you can call it in the same way all the times.
 
-        var bob = {name:'bob'};
+```js
+var bob = {name:'bob'};
 
-        bob.sayHello = function () {
-            console.log('bob responde: banana');
-        };
+bob.sayHello = function () {
+    console.log('bob responde: banana');
+};
 
-        var	stuart = {name:'stuart',
-                      sayHello: function() {
-                          console.log('stuar responde: hey there');
-                      }  };
+var	stuart = {name:'stuart',
+                sayHello: function() {
+                    console.log('stuar responde: hey there');
+                }  };
 
-        var gru = {
-                minions: [bob, stuart],
-                sayHelloBeforeSleep: function() {
-                    // Por cada uno de los minions
-                    this.minions.forEach(function(minion){
-                        // Gru saluda
-                        console.log('Gru dice: Chau ' + minion.name);
-                        // El minion responde
-                        minion.sayHello();
-                    });
-                }
-        };
+var gru = {
+        minions: [bob, stuart],
+        sayHelloBeforeSleep: function() {
+            this.minions.forEach(function(minion){
+                console.log('Gru dice: Chau ' + minion.name);
+                minion.sayHello();
+            });
+        }
+};
+```
 
-## Instance Objects
+### Instance Objects
 
 To instance object we usually create function in which we could create objects.
 
-        var createTelevisores = function(vidaUtil){
-        var televisor = {};
-        televisor.vidaUtilEnHoras = vidaUtil;
-        televisor.encender = function() {
-            this.vidaUtilEnHoras = this.vidaUtilEnHoras - 0.01;
-        }
-        return televisor;
-        }
+```js
+var createTv = function(usefulTime){
+    var tv = {};
+    tv.usefulTime = usefulTime;
+    tv.turnOn = function() {
+        this.usefulTime = this.usefulTime - 0.01;
+    }
+    return tv;
+}
 
-        var aTelevisor = createTelevisores(9000);
-        var anotherTelevisor = createTelevisores(8000);
+var aTv = createTv(9000);
+var anotherTv = createTv(8000);
+```
 
 There is another way to instance object in JS by prototypes.
 
-## Prototypes
+### Prototypes
 
-        var anRectangule = 
-        {
-            width:10,
-            height:20,
-        };
+```js
+var anRectangule ={
+    width:10,
+    height:20,
+};
 
-        anRectangule.area = function(){
-            return this.width * this.height;
-        }
+anRectangule.area = function(){
+    return this.width * this.height;
+}
 
-        anRectangule.area();
+anRectangule.area();
+```
 
-In the previous example we created a object with two properties and one method, but what happend if I want to created another rectangule object with different widh and height but with the same area function, should I wrote the same amount of code?
+In the previous example we created a object with two properties and one method, but what happend if I want to created another rectangule object with different widh and height but with the same area function, should I write the same amount of code?
 
 The answer is no, we can create prototypes.
 
@@ -356,230 +532,232 @@ The answer is no, we can create prototypes.
 
 3. Finally we set the properties to the object.
 
-        var rectanguleProtoype = {
-            area: function() {
-                return this.width * this.height;
-            }
-        }
+```js
+var rectanguleProtoype = {
+    area: function() {
+        return this.width * this.height;
+    }
+}
 
-        var aRectangule = Object.create(rectanguleProtoype);
-        aRectangule.width = 10;
-        aRectangule.height = 20;
+var aRectangule = Object.create(rectanguleProtoype);
+aRectangule.width = 10;
+aRectangule.height = 20;
 
-        var anotherRectangule = Object.create(rectanguleProtoype);
-        anotherRectangule.width = 20;
-        anotherRectangule.height = 20;
+var anotherRectangule = Object.create(rectanguleProtoype);
+anotherRectangule.width = 20;
+anotherRectangule.height = 20;
 
-        /* At this point I'm able to call the method area, because all the variables are set, if I called area before this is going to cause problems.*/
+/* At this point I'm able to call the method area, because all the variables are set, if I called area before this is going to cause problems.*/
 
-        aRectangule.area(); // 200 
-        anotherRectangule.area(); // 400
-
+aRectangule.area(); // 200
+anotherRectangule.area(); // 400
+```
 
 Methods define in the object are more important that methods define in the prototype.
 
-## Override Methods
+### Override Methods
 
 Basic Instance
 
-        var rectanguleProtoype = {
-            area: function() {
-                return this.width * this.height;
-            }
-        }
+```js
+var rectanguleProtoype = {
+    area: function() {
+        return this.width * this.height;
+    }
+}
 
-        var aRectangule = Object.create(rectanguleProtoype);
-        aRectangule.width = 10;
-        aRectangule.height = 10;
+var aRectangule = Object.create(rectanguleProtoype);
+aRectangule.width = 10;
+aRectangule.height = 10;
 
-What happend if I want to change the implementation of the area function but only in the reference "aRectangule".
 
-        aRectangule.area = function() {
-            return this.width * this.width;  // Replace height by width
-        }
+aRectangule.area = function() {
+    return this.width * this.width;  // Replace height by width
+}
+```
 
-Which of the two methods area is going to use when I call aRectangule.area(), the methods previous define or the prototype method.?
+As you can see in the above code, we re-write at the end the area function, but only in the reference "aRectangule."
 
-The answer is the method previous define, because when I use aRectangule.area() first JS is going to search is there is any object call area in the Object and if not search in the prototype, that means that first check the object properties and after the prototype properties.
+Now the question is, Which of the two function `area()` is going to be called with aRectangule.area()? The answer is re-write function, because when I use aRectangule.area() first JS is going to search if there is any function call area in the Object and if not search in the prototype, that means that first check the object properties and after the prototype properties.
 
-## __proto__
+### __proto__
 
 When I use the property __proto__ in a Object, is going to return the base prototype.
 
-        aRectangule.__proto__  /* {
-            area: function() {
-                return this.width * this.height;
-            } /*
+```js
+aRectangule.__proto__  {
+    area: function() {
+        return this.width * this.height;
+    }
+```
 
 With this __proto__ can I validate if two object have the same prototypes.
 
 If we create an object with the syntax {}, the property __proto__ is going to return the base prototype, that mean that all the objects create with {} are going to have the same prototype.
 
-        var square = {};
-        var circle = {}
+```js
+var square = {};
+var circle = {}
 
-        square.__proto__ === circle.__proto__ // true
+square.__proto__ === circle.__proto__ // true
+```
 
 There is one exception, if I use the Object.create(null), when i use the __proto__ the return will be an undefined.
 
-## Constructor Function
+### Constructor Function
 
 As we see in the previous topic, when we use Prototypes we should created the object and after that set the variables.
 
-        var squarePrototype: {
-            area: function() {
-                return this.side * this.side;
-            }
-        }
+```js
+var squarePrototype: {
+    area: function() {
+        return this.side * this.side;
+    }
+}
 
-        var aSquare = Object.create(squareProtutype);
-        aSquare.side = 3;
-     
-        var anotherSquare = Object.create(squareProtutype);
-        anotherSquare.side = 5;
+var aSquare = Object.create(squareProtutype);
+aSquare.side = 3;
+
+var anotherSquare = Object.create(squareProtutype);
+anotherSquare.side = 5;
+```
 
 To solve the problem of use Object.create() and after that set variables we can use Constructor function, that is a function in which you pass the initial Object values.
 
+```js
+var Square = function Square(side) {
+    this.side = side;
+}
 
-        var Square = function Square(side) {
-            this.side = side;
-        }
+Square.prototype = {
+    area: function() {
+        return this.side * 2;
+    }
+}
 
-        Square.prototype = {
-            area: function() {
-                return this.side * 2;
-            }
-        }
+var firstSquare = new Square(2);
+var secondSquare = new Square(5);
+```
 
-        var firstSquare = new Square(2);
-        var secondSquare = new Square(5);
+### Constructor Hierarchy
 
+When I have an base object and I want to create another object with more properties, is require that in the new object constructor function the constructor function of the base object, let's see it.
 
-## Constructor Hierarchy
+```js
+var Person = function(energy) {
+    this.energy = energy;
+}
 
-When I have an object base and I want to create another object with more properties, is require that in the constructor function of the new object call the constructor function of the base object, let's see it.
-
-        var Person = function(energy) {
-            this.energy = energy;
-        }
-
-        var Wizard = function(estamina) {  // Wizard is a subclass of person
-            this.estamina = estamina;n
-        }
+var Wizard = function(stamina) {  // Wizard is a subclass of person
+    this.stamina = stamina;
+}
+```
 
 With the previous approach we have two constructor function one for Person and one for Wizard, the point here is that Wizard must have the property energy too, but if we create a Wizard object this property is not going to be there, to solve this we need to call the other constructor function.
 
-        var Wizard = function(estamina) {  // Wizard is a subclass of person
-            Person.call(this);
-            this.estamina = estamina;
-        }
+```js
+var Wizard = function(stamina) {  // Wizard is a subclass of person
+    Person.call(this);
+    this.estamina = estamina;
+}
+```
 
 Now, the object wizard have also all the Person properties.
 
-## Prototype-Hierarchy
+### Prototype-Hierarchy
 
-        var Person = function(energy) {
-            this.energy = energy;
-        }
+```js
+var Person = function(energy) {
+    this.energy = energy;
+}
 
-        Person.prototype = {
-            walk: function() {
-                console.log("Walking");
-                this.energy -= 5;
-            },
-            sleep: function() {
-                console.log("Sleeping");
-                this.energy += 5;
-            }
-        }
+Person.prototype = {
+    walk: function() {
+        console.log("Walking");
+        this.energy -= 5;
+    },
+    sleep: function() {
+        console.log("Sleeping");
+        this.energy += 5;
+    }
+}
 
-         var Wizard = function(estamina) {  // Wizard is a subclass of person
-            Person.call(this);
-            this.estamina = estamina;
-        }
+    var Wizard = function(estamina) {  // Wizard is a subclass of person
+    Person.call(this);
+    this.estamina = estamina;
+    }
 
-        Wizard.prototype = Object.create(Persona.prototype);
-        Wizard.prototype.castSpell = function(){
-            this.estamina -= 10;    
-        }
+Wizard.prototype = Object.create(Persona.prototype);
+Wizard.prototype.castSpell = function(){
+    this.estamina -= 10;    
+}
+```
 
 In the previous example we created a chain of prototype or Hierarchy of protoypes. As you can notice the key here is created the new prototype in base of the base prototype and add the require methods.
 
 ## Array
 
-Array is a data structure in which i can store a lot of information but the same type.
+Array is a data structure in which we can store a lot of information with the same type.
 
-        var listaNum = [1, 2];
+```js
+var nums = [1, 2];
+```
 
-In an array you even can store objects:
+In an array you even can store objects
 
-        var listObjects = [{num:3, type:"A"}, {num:3, type:"A"}];
-
+```js
+var objects = [
+    {
+        num:3, 
+        type:"A"
+    },
+    {
+        num:3,
+         type:"A"
+    }
+];
+```
 
 Also I can create an array using the keyword new Array();
 
-        var newArray = new Array(1,2,3);
+```js
+var newArray = new Array(1,2,3);
+```
 
 ### Array-Add
 
-If there is an array that was created before, i could add more information in the next way.
+If there is an array that was created before, we could add more elements in the next way
 
-        var listNum = [1,2,3];
-        listNum[3]=4;
-        console.log(listNum) // 1,2,3,4
+```js
+var nums = [1,2,3];
+nums[3]=4;
+console.log(nums) // 1,2,3,4
+```
 
 In some specific situation we don't know the size of the array, so is complicate to know where insert the new value, for this reason there is a function call push() which insert one value at end of the array.
 
-        var listNum = [1,2,3];
-        listNum.push(4);
-        console.log(listNum) // 1,2,3,4
+```js
+var nums = [1,2,3];
+nums.push(4);
+console.log(nums) // 1,2,3,4
+```
 
 ### Array-Search
 
-        var listNum = [1,2,3];
-        console.log(listNum[1]) // 2
+```js
+var nums = [1,2,3];
+console.log(nums[1]) // 2
+```
 
 ### Array-Delete
 
 To delete the last element of the array we can use the function pop(), also this function return the removed element ;
 
-        var listNum = [1,2,3];
-        var removedElement listNum.pop();
-        console.log(removedElement) // 3
-
-# Functions
-
-Create a function.
-
-        function nameOfTheFunction() {
-
-        }
-
-        // Calling function
-        nameOfTheFunction();
-
-Create function with parameters.
-
-        function nameOfTheFunction(param1, param2) {
-            alert(param1, param2);
-        }
-
-        nameOfTheFunction("hi", "there");
-
-Create function with return statement.
-
-        function nameOfTheFunction(param1, param2) {
-            return param1 + param2;
-        }
-
-Local variables in the function.
-
-        function nameOfTheFunction(param1, param2) {
-            var age = 23;
-            return param1 + param2;
-        }
-
-The variables defines within a function only have the scope within the function, not outside.
+```js
+var nums = [1,2,3];
+var removedElement nums.pop();
+console.log(removedElement) // 3
+```
 
 # Functional Programming
 
@@ -587,30 +765,34 @@ This kind of programming is based on "Functions" and some principles like No Sid
 
 ## No Side Effects
 
-In imperative lenguage a lot of time we could change the value of objects, and even in some function we could use global variables that are changing, in functional programmin this kinda of code does not exist, because in functional progrmming function only use the parameters, those function can not use mutable global variables because this represent a side effect in the function.
+In imperative lenguage a lot of time we could change the value of objects, and even in some function we could use global variables that are changing, in functional programming this kinda of code does not exist, because in functional progrmming function only use the parameters, those function can not use mutable global variables because this represent a side effect in the function.
 
 ## Inmutability
 
-Inmutability is a structure in which the components related with the structore are not going to change, if we need to change we must to create another object. This helps to preserver the value of the object in the time.
+Inmutability is a structure in which the components related with the structore are not going to change, if we need to change we must to create another object. This helps to preserve the value of the object in the time.
 
 Imperative Approach
 
-        function eat(golondrina, alpiste) {
-            return golondrina.energy + (alpiste * 10);
-        }
+```js
+function eat(golondrina, alpiste) {
+    return golondrina.energy + (alpiste * 10);
+}
+```
 
 Functional Approach
 
-        function eat(golondrina, alpiste) {
-            return {
-                name: golondrina.name,
-                energy: golondrina.energy + (alpiste * 10)
-            };
-        }
+```js
+function eat(golondrina, alpiste) {
+    return {
+        name: golondrina.name,
+        energy: golondrina.energy + (alpiste * 10)
+    };
+}
+```
 
-## Recursivity.
+## Recursivity
 
-For recursivity in require to have the next elements 
+For recursivity is require to have the next concepts.
 
 1. A "base case", which is responsable to say how to begin the recursivity.
 
@@ -618,80 +800,500 @@ For recursivity in require to have the next elements
 
 Imperative Approach
 
-        function sumatoria(lista) {
-            var resultado = 0;          // base case
-            lista.forEach(function(x) {
-                resultado += x;         // recursive case
-            });
-            return resultado;
-        }
+```js
+function summation(list) {
+    var result = 0;          // base case
+    list.forEach(function(x) {
+        result += x;         // recursive case
+    });
+    return result;
+}
+```
 
 Recursive Approach
 
-        function sumatoria(lista) {
-            if(isEmpty(lista)){
-                return 0;
-            } else {
-                return sumatoria(init(lista) + last(lista))
-            }
-        }
+```js
+function summation(list) {
+    if(isEmpty(list)){
+        return 0;
+    } else {
+        return summation(init(list) + last(list))
+    }
+}
+```
 
+Another Example:
 
-Another Example :
+```js
+function factorial() {
+    if(n == 0) {
+        return 1;
+    } else {
+        return factorial(n-1) * n
+    }
+}
+```
 
-        function factorial() {
-            if(n == 0) {
-                return 1;
-            } else {
-                return factorial(n-1) * n
-            }
-        }
-
-## Higher order functions   
+## Higher order functions
 
 These kinda of function, are special function that receive as parameter other functions.
 
 ## Filter
 
-Filter is a Higher order function because this function receive another function as parameter.
+Filter is a higher order function because this function receive another function as parameter.
 
-
-        var isShort = function() {
-            ...
-        };
-        lista.filter(isShort);  // This return a new list with those elements that return true in the function
+```js
+var isShort = function() {
+    // code...
+};
+list.filter(isShort);  // This return a new list with those elements that return true in the function isShort
+```
 
 ## Map
 
-If i want to map element in an array to another kind of element I can use another Higher order function called map.
+If i want to map elements in an array to another kind of element I can use another Higher order function called map.
 
-        var title = function() {
-            return ....
-        };
-        library.map(title) // This function return another list with only title.
+```js
+var title = function() {
+    return ....
+};
+library.map(title) // This function return another list with only title.
+```
 
 ##  Some
 
 Some is also a Higher order function that take two parameter, the first one is an array, and the second a function.
 
-        library.some(isold);
+```js
+library.some(isOld);
+```
 
 ##  Every
 
 Every is so similar to some with the difference that, return true if all of the elements in the list satisfy the condition.
 
-        library.some(isold);
+```js
+library.some(isOld);
+```
 
 ## Closures
 
 Closures are also know as Anonymous functions, there are moments in which we use one function in our map or filter functions, in order to not create function that wont be reusable, you can send a closure.
 
-        var maxDays = 90;
-        library.filter(function(book) {
-            return book.daysAvailable < maxDays;
-        });
+```js
+var maxDays = 90;
+library.filter(function(book) {
+    return book.daysAvailable < maxDays;
+});
+```
 
-        
+## Asynchronism
+
+### Callback
+
+Is going to be called when the functions ends.
+
+```js
+asyncFunction(paramOne, paramTwo, function(response) {
+    console.log(response);
+});
+```
+
+
+If we send a function as a parameter in another function not always means that we are sending a callback, for example the forEach method receive a simple blocking function instead of a callback, but the setTimeOut Receive a callback functions because its asynchronous.
+
+### Errors with Callback
+
+1. Errback (It is very common in Node)
+
+This approach basically consist in send two parameters in the callback, the first one is the error and the second one is the real information.
+
+```js
+asyncFunction(paramOne, function(err, response) {
+	if (err) {
+		... Error happens
+		return console.log(err);
+	}
+	... Good way.
+	console.log(response);
+});
+```
+
+2. More than one callback (Use it by Jquery)
+
+```js
+ $.ajax('/api/user', {
+    method: 'GET',
+    success: function (data) {
+        console.log('I have data', data);
+    },
+    error: function (jqXHR, textStatus, err) {
+        console.log('buu :(', err);
+    }
+});
+```
+
+### Callback Hell
+
+Callback hell is one the worst practices when we are using callbacks, basically is when we have a lot of nested callbacks in one function, this makes the code so complicated to maintain.
+
+```js
+function executeMultiplesCallbacks(cbGeneral) {
+  async1(function () {
+    // Finish first function
+    async2(function () {
+      // Finish second function
+      async3(function () {
+        // Finish third function
+        async4(cbGeneral);
+      });
+    });
+  });
+}
+
+executeMultiplesCallbacks(function () {
+  console.log('All the functions finished');
+})
+```
+
+### Async Library
+
+Async is a library the really make us easy to use callbacks.
+
+#### Async Series
+
+Run the functions in the tasks collection in series, each one running once the previous function has completed. If any functions in the series pass an error to its callback, no more functions are run, and callback is immediately called with the value of the error.
+
+```js
+function first (cb) {
+  // ...
+  if (error) {
+    return cb(error);
+  }
+  cb(null, resultado);
+}
+
+function second (cb) {
+  // ...
+}
+
+var functionList = [first, second];
+
+async.series(functionList, function() {
+	console.log("All the functions were executed.")
+});
+```
+
+#### Async Waterfall
+
+When one callback result is send to the next callback, we need to use async waterfall. (Waterfall because there is a dependency for the higher responses)
+
+```js
+function hi(cb) {
+	setTimeout(function(){
+    	 cb(null, "Hi");
+    }, 100);
+}
+
+function how(string, cb) {
+	setTimeout(function(){
+    	 cb(null, string + "how");
+    }, 100);
+}
+
+function are(string, cb) {
+	setTimeout(function(){
+    	 cb(null, string+" are");
+    }, 100);
+}
+
+function you(string, cb) {
+	setTimeout(function(){
+    	 cb(null, string+" you");
+    }, 100);
+}
+
+async.waterfall([hi , how , are, you], function(err, resp) {
+	if (err) { 
+      return console.log('Buu', err);
+    }
+    else { 
+      return console.log('Wii', resp);
+    }
+})
+```
+
+#### Async Parallel
+
+If we want to execute some callback in parallel, we can use the asyc.parallel
+ - We can use async parallel sending a list of callbacks, or an object with several callbacks
+
+
+```js
+function task1 (cb) {
+  setTimeout(function() {
+    cb(null, 'Result task1');
+  }, 2000);
+}
+
+function task2 (cb) {
+  // ...
+}
+
+// List of callbacks
+var tasks = [task1, task2];
+
+async.parallel(tasks, function (err, response) {
+  console.log('All the task were executed');
+  console.log('Tarea 1:', response[0]);
+  console.log('Tarea 2:', response[1]);
+});
+
+// Object of callbacks
+var taskObject = {
+  task1: task1,  
+  task2: task2  
+};
+
+async.parallel(taskObject, function (err, response) {
+  console.log('All the task were executed');
+  console.log('Task 1:', response.task1);
+  console.log('Task 2:', response.tasl2);
+});
+```
+
+#### Async each
+
+The for each function help us to process a list of objects in parallel, this function receive three parameters.
+
+1. List of Objects: The list of object to iterate
+2. An iterator function
+3. A callback
+
+```js
+var async = require('async');
+var fs = require('fs');
+
+var files = [
+    {name: 'prueba1.txt', content: 'Esta es una prueba 1'},
+    {name: 'prueba2.txt', content: 'Esta es una prueba 2'},
+    {name: 'prueba3.txt', content: 'Esta es una prueba 3'}
+];
+
+function writeFile (file , cb) {
+	fs.writeFile(file.name, file.content, cb);
+}
+
+
+async.each(files, writeFile, function (err) {
+	if (err) {
+        console.log('Buu :(', err);
+        return;
+    }
+	console.log('wiii!');
+});
+```
+
+#### Async Filter-Reject
+
+```js
+var array = [1,2,3];
+async.filter(array, predicate, cb);
+async.reject(array, predicate, cb);
+
+function cb(result) {
+	console.log('The filter elements are', result)
+}
+
+function predicate (element , cb) {
+	if (something) {
+    	cb(true);
+    } else {
+    	cb(false);
+    }
+}
+```
+
+#### Async Map
+
+```js
+var array = [1, 2, 3];
+async.map(array, toMap, end);
+
+
+function toMap(item, cb) {
+	cb(null, item + 1);
+};
+
+function end(err, resp) {
+	if (err) {
+      return console.log('buu :(', err);
+    }
+    console.log('wii', resp);
+}
+```
+
+#### Async reduce
+
+The reduce funtion is divided in the next parameters:
+
+1. The array with all the information
+2. The initial value
+3. The reduction function 
+4. Final callback
+
+```js
+var array = [1, 2, 3];
+
+async.reduce(array, 0 , reduction , end);
+
+function reduction(acc, item, cb) {
+	setTimeOut(dunction() {
+		cb(acc+item);
+	}, 500);
+}
+
+
+function end(err, reduced) {
+	if (err) {
+      return console.log('buu :(', err);
+    }
+    console.log('wii', reduced);
+}
+```
+
+### Async Compose
+
+```js
+function half (n, cb) {
+    setTimeout(function () {
+        cb(null, n / 2);
+    }, 10);
+}
+
+function plusOne(n, cb) {
+    setTimeout(function () {
+        cb(null, n + 1);
+    }, 10);
+}
+
+var halfAndPlusOne = asyc.compose(plusOne, half)
+// var halfAndPlusOne = asyc.seq(plusOne, half) // -> Pretty much the same
+```
+
+#### Async Retry
+
+Sometimes we need to retry some operations, maybe because the resource is not available yet or other scenarios.
+
+```js
+var options = { times:3, interval:200};
+async.retry(options, task, cb);
+```
+
+## Promises
+
+A promises is an object that is used in async request and represent a value that could be available "now", in the "future" or "never". Also a promises could have the next status.
+
+1. Pending: Initial Status, is not fullfil or rejected.
+
+2. Fullfill: The operation was sucessfull.
+
+3. Rejected: The operation fails
+
+### Promises-Flow
+
+* In the next image you will find the posible scenarios when we are dealing with a promises.
+
+![](https://github.com/andresmontoyab/JavaScript/blob/master/resources/promisesFlow.PNG) 
+
+```js
+var promise = ...
+promise.then(
+	function(value) { // sucess callback
+		
+	}, 
+	function(err) { // err callback
+		
+	}
+);
+```
+
+### Promises Vs Callback
+
+What is the difference between the callback and the promises.?
+
+- The main difference is that our promises can be send around the entire application.
+- We can chained promises.
+
+### Creating Promises
+
+```js
+var promise = new Promise(functon(resolve, reject) {
+	setTimeout(function () {
+		if (everythinIsGood)
+			resolve('The promise');
+		} else {
+			reject('The promises was rejected');
+		}
+	}, 5000)
+});
+
+console.log("The Promise Begins");
+promise.then((message) => {
+        console.log(message);
+});
+```
+
+### Promises Chained
+
+```js
+var newPromises =  ....
+var otherPromises = newPromesa.then(action);
+```
+
+### Promises Chained with Error
+
+```js
+var newPromises =  ....
+var otherPromises = newPromesa.then(action) // ... this action throws and exception
+var morePromise = otherPromises.then(otherAction)
+```
+
+### Promises in parallel
+
+When we want to execute promises in parallel there multiples options.
+
+#### Promise.all
+
+Is going to execute all the promises in parallel and wait for all the responses.
+
+```js
+var allPromises = [promiseOne, 2, promisesTwo, "Hi There", promisesThree]
+Promise.all(allPromises)
+	.then(function (value) {
+		// value === [value1, 2, value2, ....]
+	})
+```
+
+#### Promise.race
+
+Is going to execute all the promises and the final value is going to be the first promises that is resolve or reject it
+
+```js
+var p1 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 500, "One");
+});
+var p2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, "Two");
+});
+
+Promise.race([p1, p2]).then(function(value) {
+  console.log(value); // "dos"
+  // Both resolve , but p2 is faster
+});
+```
+
+
 # Library of Objects
 
 The library of Objects, are object that were already defined by JavaScript or some framework and we can use it to perform several tasks.
@@ -721,9 +1323,99 @@ The library of Objects, are object that were already defined by JavaScript or so
 
 1. call
 
+## ES6
+
+### Arrow Functions
+
+Always are anonymous also cant be used like constructor.
+
+```js
+const mi_function = () => {
+        boddy
+};
+```
+
+### Destructuring
+
+Is a strategy that let us to asign value to variables from complex objects or arrays with some elements, using the technique "Object pattern".
+
+```js
+const obj = { name: 'Andres', nick: 'Andrew'};
+const {name: myName, nick: myNick} = obj;
+// myName -> Andres.
+// myNick -> Andrew.
+```
+
+When the both structure are the same you or have the same propertiesyou can abreviate in the next way
+
+```js
+const obj = { name: 'Andres', nick: 'Andrew'};
+const {name, nick} = obj;
+// name -> Andres
+// Nick -> Andrew
+```
+
+When use it destructuring is not require to use all the variables.
+
+```js
+	const source = {x: 7, y: 3 };
+	const {x} = source;
+	// x -> 7
+	// y ->  Uncaught ReferenceError 
+```
+
+The destructing can have default values in the props.
+
+```js
+const {x, y = 1} = {};
+// x -> undefined
+// y -> 1
+```
+
+### Destructuring Arrays
+
+```js
+const myArray = ['a', 'b']
+const [x,y] = myArray;
+// x -> a
+// y -> b
+```
+
+Also you can use it with keywords let and var.
+
+In Destructing with array you can use "elision" is a way to omit one o more elements  between some array positions. For example if we dont want to use some elements.
+
+```js
+const [,, x, y] = ['a','b','c','d'];
+//	x -> c
+//  y -> d
+```
+
+You can use the "rest operator" with the destructuring in order to extract the elements that remains.
+
+```js
+const [x, ...y] = ['a', 'b', 'c'];
+// x -> a
+// y -> [b,c]
+```
+
+### StringTemplate
+
+* ES6 Template Strings (available in Chrome 41+), fundamentally change that. They introduce a way to define strings with domain-specific languages (DSLs), bringing better:
+   * String interpolation
+   * Embedded expressions
+   * Multiline strings without hacks
+   * String formatting
+   * String tagging for safe HTML escaping, localization and more.
+
+```js
+var name = "Brendan";
+console.log(`Yo, ${name}!`);
+```
+
 ## Libraries
 
-As you can see Javascript is a huge pragramming languague, and a lot of problem were already solved for some ither libraries, in this section we are going to show some libreries that can help us in very commom problems
+As you can see Javascript is a huge pragramming languague, and a lot of problem were already solved for some other libraries, in this section we are going to show some libreries that can help us in very commom problems
 
 ### Moment.JS
 
@@ -731,13 +1423,35 @@ Parse, validate, manipulate and display date and times in Javascript.
 
 In order to install moment.js in our project we can use the next command.
 
-´´´console
+```sh
 npm install moment
-´´´
+```
 
 If you want to get involve with this library we can see all the documentation in the next page.
 
 https://momentjs.com/docs/
+
+### Lodash
+
+Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, string etc.
+
+1. Iterating arrays, objects & string
+2. Manipulating & testing values
+3. Creating composite functions
+
+```sh
+npm install moment
+```
+
+### Json Server
+
+Is very usual to call API in an application, nevertheless there are many times that we dont have acess to the API, so one way to solve this(only for test)
+is use json server, that is going to be pseudo-server that is going to a start up a server that we can call using HTTP calls.
+
+```sh
+npm install -g json-server
+json-server --watch db.json --port 3002
+```
 
 # Testing
 
@@ -775,30 +1489,37 @@ The first step is created our code in the src folder.
 
 Let's create a simple function called next, in which always return the next value, this function is stored in the next.js file.
 
-        function next(x) {
-            return x +1;
-        };
+```js
+function next(x) {
+    return x +1;
+};
+```
 
 After that we must tell to jasmine where is our source code, to do that we have to update the SpecRunner and add the next tag.
 
-
-        <script type="text/javascript" src="src/next.js"></script>
+```js
+<script type="text/javascript" src="src/next.js"></script>
+```        
 
 Now is time to create our first test.
 
-        describe('next', function(){
-            it('next(2) es 3', function() {
-                expect(next(2)).toEqual(3);
-            });
-        });
+```js
+describe('next', function(){
+    it('next(2) ist 3', function() {
+        expect(next(2)).toEqual(3);
+    });
+});
+```
 
 Also add the next tag.
 
-        <script type="text/javascript" src="spec/next-spec.js"></script>
+```js
+<script type="text/javascript" src="spec/next-spec.js"></script>
+```
 
 # Task-Runner      
 
-In the development cyckle there are some task that are repetitive task like compiling, testing, building and deployment, in order to have an standard way for our projects we use task runner like Gulp.js, Grunt.js or WebPack
+In the development cycle there are some task that are repetitive task like compiling, testing, building and deployment, in order to have an standard way for our projects we use task runner like Gulp.js, Grunt.js or WebPack
 
 ## Workflow
 
@@ -822,11 +1543,15 @@ As we can see in the previous image, there are a lot step to finish adequately t
 
 Let's go dive into the Gulp.js, first to install gulp.js we must run the next command
 
-        npm install -g gulp-cli
+```sh
+npm install -g gulp-cli
+```
 
 After that we must to add the dependency to our project.
 
-        npm install gulp --save-dev
+```sh
+npm install gulp --save-dev
+```
 
 ## GulpFile
 
@@ -834,22 +1559,25 @@ There is a particular file in which you should configure all your repetitive tas
 
 Within of the gulpfile.js we should create the next variable.
 
-        var gulp = require('gulp');
+```js
+var gulp = require('gulp');
+```
 
 ### Create Tasks
 
 To create tasks in gulpjs we only have to follow the next structure:
 
+```js
+gulp.task('hola', function() {
+    console.log('Hola ');
+});
 
-        gulp.task('hola', function() {
-            console.log('Hola ');
-        });
+gulp.task('mundo', function() {
+    console.log('mundo');
+});
 
-        gulp.task('mundo', function() {
-            console.log('mundo');
-        });
-
-        gulp.task('default', ['hola', 'mundo']);
+gulp.task('default', ['hola', 'mundo']);
+```
 
 The last task called "default" is very important because this task is going to be executed if you run gulp in your cli, if you want to execute another want you can call it like gulp hello or gulp world.
 
@@ -857,10 +1585,12 @@ Another important thing to highlight in the above code is that if you can see th
 
 There are powerfull feature in gulp.js as src, dest and pipe
 
-        gulp.task('sass', function(){
-            return gulp.src('src/style.sass')
-                .pipe(gulp.dest('.tmp'));
-        });
+```js
+gulp.task('sass', function(){
+    return gulp.src('src/style.sass')
+        .pipe(gulp.dest('.tmp'));
+});
+```
 
 1. gulp.src -> Read information from a source
 2. pipe -> process information
@@ -868,18 +1598,22 @@ There are powerfull feature in gulp.js as src, dest and pipe
 
 ### Create Async Tasks
 
-        gulp.task('hola', function(cb){
-            settimeout(function() {
-                console.log("Hola");
-                cb();
-            }, 2000)
-        });
+```js
+gulp.task('hola', function(cb){
+    settimeout(function() {
+        console.log("Hola");
+        cb();
+    }, 2000)
+});
+```
 
 Async task are not very usefull, if we want to tied to task, is better use the feature of depends on
 
-         gulp.task('mundo', ['hola'] ,function() {
-            console.log('Mundo');
-        });
+```js
+    gulp.task('mundo', ['hola'] ,function() {
+    console.log('Mundo');
+});
+```
 
 
 In the above code, mundo only is going to run when hola finish.
@@ -888,24 +1622,26 @@ In the above code, mundo only is going to run when hola finish.
 
 Gulp watch is an amazing feature of gulp, this feature is always cheking the changes in a specific file, and when something happens gulp is going to execute certain task.
 
-        gulp.task('watch', function() {
-            gulp.watch('src/style.sass', ['sass']);
-        });
+```js
+gulp.task('watch', function() {
+    gulp.watch('src/style.sass', ['sass']);
+});
+```
 
 ### Browser-sync
 
 Browser sync is a feature in which we can deploy our changes in a static server in order to see the changes.
 
-        var browserSync = require('browser-sync');
-
-        gulp.task('serve', ['sass'] ,function() {
-            browserSync({
-                server: {
-                    baseDir: ['.tmp', 'src']
-                }
-            });
-
-        });
+```js
+var browserSync = require('browser-sync');
+gulp.task('serve', ['sass'] ,function() {
+    browserSync({
+        server: {
+            baseDir: ['.tmp', 'src']
+        }
+    });
+});
+```
 
  ### Upload Archives
 
@@ -913,27 +1649,29 @@ Browser sync is a feature in which we can deploy our changes in a static server 
 
  Let's set up an example using ftp.
 
-        npm install vinyl-ftp --save-dev
+```sh
+npm install vinyl-ftp --save-dev
+```
 
-        gulp.task('build', ['sass']);
+```js
+gulp.task('build', ['sass']);
+function ftpConnection() {
+    return ftp.create({
+        host: 'acamica.com',
+        user:'me',
+        password: process.env.FTP_PWD,
+        parallel: 5
+    })
+};
 
 
-        function ftpConnection() {
-            return ftp.create({
-                host: 'acamica.com',
-                user:'me',
-                password: process.env.FTP_PWD,
-                parallel: 5
-            })
-        };
-
-
-        gulp.task('upload', ['build'], function() {
-            var ftp = ftpConnection();
-            var remoteFolder = 'everywhere';
-            return gulp.src('dist/**', {base: 'dist', buffer: false})
-                    .pipe(ftp.newer(remoteFolder))
-                    .pipe(ftp.dest(remoteFolder));
-        });
+gulp.task('upload', ['build'], function() {
+    var ftp = ftpConnection();
+    var remoteFolder = 'everywhere';
+    return gulp.src('dist/**', {base: 'dist', buffer: false})
+            .pipe(ftp.newer(remoteFolder))
+            .pipe(ftp.dest(remoteFolder));
+});
+```
 
 The code above is an example of a task that will upload files after the build task.        
