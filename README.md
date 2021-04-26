@@ -5,6 +5,7 @@
         * [Hello World](#Hello-World)
         * [Console](#Console)
         * [Create Variables](#Create-Variables)
+        * [var vs let vs const](#var-vs-let-vs-const)
         * [Information Type](#Information-Type)
         * [Comments](#Comments)
         * [Constants](#Constants)
@@ -114,6 +115,27 @@ console.log("Hello World");
 ```js
 var lastname = "Smith";
 ```
+
+## var vs let vs const
+
+In javascript we have different way to create a variable, here we are going to explain you all of those ways
+
+### var
+
+We use the var keyword to declare variables. The scope of a variable declared using this keyword is within the context wherever it was declared. For variables declared outside any function, this means they are globally available throughout the program. 
+
+### let
+
+We use the let keyword to declare variables that are limited in scope to the block, statement, or expression in which they are used.
+
+It's important to note that you cannot redeclare a variable declared using the let keyword within the same scope as the original variable. An attempt to do this raises an Error, as demonstrated by the code below.
+
+### const
+
+We use the const keyword to create a read-only reference to a value, meaning the value referenced by this variable cannot be reassigned. Because the value referenced by a constant variable cannot be reassigned, JavaScript requires that constant variables always be initialized.
+
+If you want more details about the differences among var,let, const please read the next documentation: https://www.hackerrank.com/challenges/js10-let-and-const/topics
+
 
 ## Information Type
 
